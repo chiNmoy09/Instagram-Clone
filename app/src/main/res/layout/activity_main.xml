@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+
+
+
+    </data>
+
+    <RelativeLayout
+        style="@style/settingsBG"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            style="@style/settingsBG"
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/viewLine"/>
+
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@color/viewLineColor"
+            android:layout_above="@+id/bottomNavView"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/darkModeBG"
+            app:itemIconSize="30dp"
+            android:clipChildren="false"
+            app:labelVisibilityMode="unlabeled"
+            app:itemIconTint="@color/settingsImageColor"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_nav_menu" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/addButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/add_icon_new"/>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true">
+
+                    <!--<de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="33dp"
+                        android:layout_height="33dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/user_profile_icon_new" />-->
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+
+
+    </RelativeLayout>
+
+
+</layout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/settingsBG"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            style="@style/settingsBG"
+            android:padding="8dp"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="3dp"
+                android:background="@color/signInViewColor" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addPost"
+            android:layout_width="match_parent"
+            style="@style/settingsBG"
+            android:layout_marginTop="8dp"
+            android:padding="15dp"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="5dp"
+                app:tint="@color/settingsImageColor"
+                android:src="@drawable/add_post_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+
+                android:textColor="@color/settingsImageColor"
+                android:text="Add Post"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addReel"
+            android:layout_width="match_parent"
+            style="@style/settingsBG"
+            android:padding="15dp"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="5dp"
+                app:tint="@color/settingsImageColor"
+                android:src="@drawable/add_reel_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/settingsImageColor"
+                android:text="Add Reel"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="disable">#8A878A</color>
+    <color name="little_gray">#cccccc</color>
+    <color name="transparent">#00000000</color>
+
+
+
+    <color name="post_blue">#5597FF</color>
+    <color name="settingsImageColor">#000000</color>
+    <color name="darkModeBG">#FFFFFF</color>
+    <color name="blockedUserNameColor">#6E6E6E</color>
+    <color name="darkModeTextColor">#000000</color>
+    <color name="viewLineColor">#E6E6E6</color>
+    <color name="darkModeImageColor">#E6E6E6</color>
+    <color name="signInViewColor">#475467</color>
+    <color name="darkModeBgColor">#FFFFFF</color>
+    <color name="darkModeBgColor_transparent">#83FFFFFF</color>
+    <color name="darkModePostBG">#9A9A9A</color>
+    <color name="darkModeOptionsBG">#9A9A9A</color>
+    <color name="postCreateTextColor">#9A9A9A</color>
+    <color name="menuBgColor">#FFFFFF</color>
+    <color name="trendingBgColor">#D1F2F8FF</color>
+    <color name="commentBgColor">#F0EDED</color>
+    <color name="commentLineColor">#F0F0F0</color>
+    <color name="statusBarColor">#FFFFFF</color>
+    <color name="bookmarkTextColor">#FFFFFF</color>
+    <color name="saveBgColor">#878787</color>
+    <color name="fadeDarkColor">#212121</color>
+    <color name="copyBgColor">#8BB7C1CF</color>
+    <color name="commentSelectedColor">#D3E0F4</color>
+    <color name="callDisableColor">#B3FFFFFF</color>
+    <color name="accountSwitchBG">#A8BDEB</color>
+    <color name="arrowColor">#373737</color>
+    <color name="settingBgColor">#FFFFFF</color>
+    <color name="textHintColor">#6E6E6E</color>
+    <color name="editTextBorderColor">#9A9A9A</color>
+    <color name="businessAccBg">#BECDF0</color>
+    <color name="storyFollowButton">#F3F7FF</color>
+    <color name="alertSwitchBG">#D9D9D9</color>
+    <color name="toastBG">#FFFFFF</color>
+    <color name="expandBg">#1EC8D7F6</color>
+    <color name="businessAccTextColor">#263238</color>
+    <color name="analyticsBorderColor">#E6E6E6</color>
+    <color name="moreAndLessColor">#4A94F2</color>
+    <color name="selectLanguageBG">#EDF4FE</color>
+    <color name="selectLanguageBorderColor">#E6E6E6</color>
+    <color name="deactivateBG">#E6E6E6</color>
+
+
+
+    <color name="textColor">#232323</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="instagramColor">#C13584</color>
+    <color name="transparentColor">#00000000</color>
+    <color name="customBlueColor">#4A94F2</color>
+
+
+</resources>
