@@ -11,6 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.undefinedparticle.instagramclone.R
 import com.undefinedparticle.instagramclone.activities.AddPostActivity
+import com.undefinedparticle.instagramclone.activities.AddReelsActivity
 import com.undefinedparticle.instagramclone.databinding.FragmentAddBottomSheetDialogBinding
 
 
@@ -44,6 +45,14 @@ class AddBottomSheetDialogFragment : BottomSheetDialogFragment() {
         binding.addPost.setOnClickListener{
 
             startActivity(Intent(context, AddPostActivity::class.java))
+
+            dialog?.dismiss()
+
+        }
+
+        binding.addReel.setOnClickListener{
+
+            startActivity(Intent(context, AddReelsActivity::class.java))
 
             dialog?.dismiss()
 

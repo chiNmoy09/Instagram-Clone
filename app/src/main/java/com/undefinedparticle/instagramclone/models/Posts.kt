@@ -1,0 +1,28 @@
+package com.undefinedparticle.instagramclone.models
+
+class Posts {
+
+    var profilePic: String? = null
+    var name: String? = null
+    var userName: String? = null
+    var imageUrl: String? = null
+    var postCaption: String? = null
+    var postLocation: String? = null
+
+    constructor()
+    constructor(
+        profilePic: String?,
+        name: String?,
+        userName: String?,
+        imageUrl: String?,
+        postCaption: String?,
+        postLocation: String?
+    ) {
+        this.profilePic = profilePic
+        this.name = name
+        this.userName = userName
+        this.imageUrl = imageUrl
+        this.postCaption = postCaption
+        this.postLocation = postLocation
+    }
+}

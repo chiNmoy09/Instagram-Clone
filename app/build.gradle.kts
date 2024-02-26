@@ -82,6 +82,8 @@ dependencies {
 
     //Circular ImageView
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+    //Rounded ImageView
+    implementation ("com.makeramen:roundedimageview:2.3.0")
 
     // BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.7.1"))

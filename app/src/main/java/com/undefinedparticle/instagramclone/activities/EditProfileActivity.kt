@@ -32,7 +32,7 @@ class EditProfileActivity : AppCompatActivity() {
 
             uploadImage(uri, USER_PROFILE_FOLDER) {
                 if (it != null) {
-                    user.image = it
+                    user.profilePic = it
                     binding.profileImage.setImageURI(uri)
                 }
             }
@@ -64,10 +64,10 @@ class EditProfileActivity : AppCompatActivity() {
                     binding.bio.setText(user.bio)
                 }
 
-                if(!user.image.isNullOrEmpty()){
+                if(!user.profilePic.isNullOrEmpty()){
                     // Load the image into the ImageView using Glide
                     Glide.with(this)
-                        .load(user.image)
+                        .load(user.profilePic)
                         .into(binding.profileImage);
                 }
 

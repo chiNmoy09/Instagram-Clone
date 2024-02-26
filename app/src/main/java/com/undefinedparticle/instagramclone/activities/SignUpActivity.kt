@@ -33,7 +33,7 @@ class SignUpActivity : AppCompatActivity() {
 
             uploadImage(uri, USER_PROFILE_FOLDER) {
                 if (it != null) {
-                    user.image = it
+                    user.profilePic = it
                     binding.profileImage.setImageURI(uri)
                 }
             }
