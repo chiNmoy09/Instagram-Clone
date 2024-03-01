@@ -1,12 +1,12 @@
 package com.undefinedparticle.instagramclone.activities
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -94,7 +94,7 @@ class AddPostActivity : AppCompatActivity() {
                     Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).document().set(posts)
                         .addOnSuccessListener{
 
-                            finish()
+                            restartApplication()
 
                         }
 
@@ -108,5 +108,12 @@ class AddPostActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun restartApplication() {
+        finish()
+        val intent = Intent(this@AddPostActivity, MainActivity::class.java)
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+    }
 
 }

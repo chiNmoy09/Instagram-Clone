@@ -45,6 +45,7 @@ class AddBottomSheetDialogFragment : BottomSheetDialogFragment() {
         binding.addPost.setOnClickListener{
 
             startActivity(Intent(context, AddPostActivity::class.java))
+            //activity?.finish()
 
             dialog?.dismiss()
 
@@ -53,7 +54,7 @@ class AddBottomSheetDialogFragment : BottomSheetDialogFragment() {
         binding.addReel.setOnClickListener{
 
             startActivity(Intent(context, AddReelsActivity::class.java))
-
+            //activity?.finish()
             dialog?.dismiss()
 
         }

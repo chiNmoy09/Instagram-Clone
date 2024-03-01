@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
+        <variable
+            name="isThereAnyPosts"
+            type="Boolean" />
 
+        <import type="android.view.View" />
 
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
+<!--        No post layout-->
         <TextView
+            android:id="@+id/noPostsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Posts"
-            android:textColor="@color/settingsImageColor"/>
+            android:text="There is no post."
+            android:textSize="20sp"
+            android:visibility="@{isThereAnyPosts? View.GONE : View.VISIBLE}"
+            tools:visibility="gone"
+            android:fontFamily="@font/inter_semibold"
+            android:gravity="center"
+            android:textColor="@color/settingsImageColor"
+            android:layout_centerInParent="true" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{isThereAnyPosts? View.VISIBLE : View.GONE}"
+            tools:visibility="visible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/sample_post_item"
+            tools:itemCount="2" />
 
 
-    </LinearLayout>
+
+    </RelativeLayout>
 
 
 </layout>
