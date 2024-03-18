@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.google.android.gms.dynamic.SupportFragmentWrapper
 import com.undefinedparticle.instagramclone.R
 import com.undefinedparticle.instagramclone.databinding.ActivityMainBinding
 import com.undefinedparticle.instagramclone.fragments.AddBottomSheetDialogFragment
@@ -11,6 +12,7 @@ import com.undefinedparticle.instagramclone.fragments.ExploreFragment
 import com.undefinedparticle.instagramclone.fragments.HomeFragment
 import com.undefinedparticle.instagramclone.fragments.NotificationFragment
 import com.undefinedparticle.instagramclone.fragments.ProfileFragment
+import com.undefinedparticle.instagramclone.fragments.ReelsFragment
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
+
 
         binding.addButton.setOnClickListener {
 
@@ -45,9 +48,9 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(AddBottomSheetDialogFragment())
                     return@setOnNavigationItemSelectedListener true
                 }*/
-                R.id.notificationFragment ->{
+                R.id.reelsFragment ->{
 
-                    replaceFragment(NotificationFragment())
+                    replaceFragment(ReelsFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.profileFragment ->{
@@ -69,4 +72,16 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragmentContainer, fragment)
             .commit()
     }
+
+    override fun onBackPressed() {
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
+
+        if(currentFragment is HomeFragment){
+            finish()
+        }else{
+            binding.bottomNavView.selectedItemId = R.id.homeFragment
+        }
+
+    }
+
 }

@@ -28,8 +28,8 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/notificationFragment"
-        android:name="com.undefinedparticle.instagramclone.fragments.NotificationFragment"
+        android:id="@+id/reelsFragment"
+        android:name="com.undefinedparticle.instagramclone.fragments.ReelsFragment"
         android:label="fragment_notification"
-        tools:layout="@layout/fragment_notification" />
+        tools:layout="@layout/fragment_reels" />
 </navigation>

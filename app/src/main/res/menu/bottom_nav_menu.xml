@@ -17,9 +17,9 @@
 <!--    android:icon="@drawable/add_icon_new"-->
 
     <item
-        android:id="@+id/notificationFragment"
-        android:icon="@drawable/like_icon"
-        android:title="Notification" />
+        android:id="@+id/reelsFragment"
+        android:icon="@drawable/add_reel_icon"
+        android:title="Reels" />
 
     <item
         android:id="@+id/profileFragment"

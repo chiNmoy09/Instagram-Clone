@@ -1,4 +1,4 @@
-package com.undefinedparticle.instagramclone.fragments.myprofile
+package com.undefinedparticle.instagramclone.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,25 +11,22 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.undefinedparticle.instagramclone.R
-import com.undefinedparticle.instagramclone.databinding.FragmentMyReelsBinding
-import com.undefinedparticle.instagramclone.models.Posts
+import com.undefinedparticle.instagramclone.databinding.FragmentReelsBinding
+import com.undefinedparticle.instagramclone.fragments.myprofile.ReelAdapter
 import com.undefinedparticle.instagramclone.models.Reels
 import com.undefinedparticle.instagramclone.utils.REELS_NODE
 
-
-class MyReelsFragment : Fragment() {
-
-    lateinit var binding: FragmentMyReelsBinding
+class ReelsFragment : Fragment() {
+    lateinit var binding: FragmentReelsBinding
     lateinit var reelList: ArrayList<Reels>
     lateinit var reelAdapter: ReelAdapter
     lateinit var viewPager2: ViewPager2
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_reels, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_reels, container, false)
         binding.lifecycleOwner = this
 
         viewPager2 = binding.viewPager2
@@ -38,7 +35,7 @@ class MyReelsFragment : Fragment() {
         viewPager2.adapter = reelAdapter
 
 
-        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + REELS_NODE).get().addOnSuccessListener {
+        Firebase.firestore.collection(REELS_NODE).get().addOnSuccessListener {
 
             val tempList = ArrayList<Reels>()
 
@@ -56,7 +53,6 @@ class MyReelsFragment : Fragment() {
             binding.isThereAnyPosts = reelList.isNotEmpty()
 
         }
-
 
         return binding.root
     }

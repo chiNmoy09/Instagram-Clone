@@ -18,30 +18,137 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!--        No post layout-->
-        <TextView
-            android:id="@+id/noPostsLayout"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="There is no post."
-            android:textSize="20sp"
-            android:visibility="@{isThereAnyPosts? View.GONE : View.VISIBLE}"
-            tools:visibility="gone"
-            android:fontFamily="@font/inter_semibold"
-            android:gravity="center"
-            android:textColor="@color/settingsImageColor"
-            android:layout_centerInParent="true" />
+            android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="@{isThereAnyPosts? View.VISIBLE : View.GONE}"
-            tools:visibility="visible"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/sample_post_item"
-            tools:itemCount="2" />
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/topLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_alignParentTop="true">
+
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/instagram_text"
+                        app:tint="@color/settingsImageColor"
+                        android:layout_alignParentStart="true"
+                        android:padding="2dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/notificationButton"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/like_icon"
+                            app:tint="@color/settingsImageColor"
+                            android:layout_marginEnd="20dp" />
+
+                        <ImageView
+                            android:id="@+id/chatButton"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            app:tint="@color/settingsImageColor"
+                            android:src="@drawable/chat_icon" />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/storyLayout"
+                    android:layout_below="@+id/topLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profileImage"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/default_user_profile"
+                            app:civ_border_color="@color/viewLineColor"
+                            app:civ_border_width="2dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/add_icon"
+                            app:civ_border_color="@color/white"
+                            app:civ_border_width="1dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+                            app:layout_constraintEnd_toEndOf="@+id/profileImage"
+                            app:layout_constraintTop_toTopOf="@+id/profileImage"
+                            app:layout_constraintVertical_bias="0.84000003" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/viewLineColor"
+                        android:layout_alignParentBottom="true" />
+
+                </RelativeLayout>
+
+                <!--        No post layout-->
+                <TextView
+                    android:id="@+id/noPostsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/storyLayout"
+                    android:text="There is no post."
+                    android:textSize="20sp"
+                    android:visibility="@{isThereAnyPosts? View.GONE : View.VISIBLE}"
+                    tools:visibility="gone"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="center"
+                    android:textColor="@color/settingsImageColor"
+                    android:layout_centerInParent="true" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@+id/storyLayout"
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{isThereAnyPosts? View.VISIBLE : View.GONE}"
+                    tools:visibility="visible"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/sample_post_item"
+                    tools:itemCount="2" />
+
+            </RelativeLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
 
 
     </RelativeLayout>

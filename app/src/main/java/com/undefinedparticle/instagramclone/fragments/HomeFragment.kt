@@ -13,6 +13,7 @@ import com.undefinedparticle.instagramclone.R
 import com.undefinedparticle.instagramclone.databinding.FragmentHomeBinding
 import com.undefinedparticle.instagramclone.fragments.myprofile.MyPostAdapter
 import com.undefinedparticle.instagramclone.models.Posts
+import com.undefinedparticle.instagramclone.utils.POST_NODE
 
 class HomeFragment : Fragment() {
     lateinit var binding:FragmentHomeBinding
@@ -32,7 +33,7 @@ class HomeFragment : Fragment() {
         myPostAdapter = MyPostAdapter(requireContext(), postList)
         binding.recyclerView.adapter = myPostAdapter
 
-        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
+        Firebase.firestore.collection(POST_NODE).get().addOnSuccessListener {
 
             val tempList = ArrayList<Posts>()
 
