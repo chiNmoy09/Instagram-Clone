@@ -31,6 +31,18 @@ class MyPostFragment : Fragment() {
         myPostAdapter = MyPostAdapter(requireContext(), postList)
         binding.recyclerView.adapter = myPostAdapter
 
+        loadData()
+
+        return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        loadData()
+    }
+
+    private fun loadData() {
         Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
 
             val tempList = ArrayList<Posts>()
@@ -50,8 +62,12 @@ class MyPostFragment : Fragment() {
 
         }
 
+    }
 
-        return binding.root
+    override fun onResume() {
+        super.onResume()
+
+        loadData()
     }
 
 

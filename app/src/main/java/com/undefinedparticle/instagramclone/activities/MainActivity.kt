@@ -4,13 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.google.android.gms.dynamic.SupportFragmentWrapper
 import com.undefinedparticle.instagramclone.R
 import com.undefinedparticle.instagramclone.databinding.ActivityMainBinding
 import com.undefinedparticle.instagramclone.fragments.AddBottomSheetDialogFragment
-import com.undefinedparticle.instagramclone.fragments.ExploreFragment
+import com.undefinedparticle.instagramclone.fragments.search.ExploreFragment
 import com.undefinedparticle.instagramclone.fragments.HomeFragment
-import com.undefinedparticle.instagramclone.fragments.NotificationFragment
 import com.undefinedparticle.instagramclone.fragments.ProfileFragment
 import com.undefinedparticle.instagramclone.fragments.ReelsFragment
 

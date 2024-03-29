@@ -10,6 +10,7 @@ class User {
     var password: String? = null
     var postCaption: String? = null
     var postLocation: String? = null
+    var following: Boolean? = false
 
 
     constructor(name: String?, userName: String?, email: String?, password: String?) {

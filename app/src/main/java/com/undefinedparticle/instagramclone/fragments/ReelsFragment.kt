@@ -34,7 +34,18 @@ class ReelsFragment : Fragment() {
         reelAdapter = ReelAdapter(requireContext(), reelList)
         viewPager2.adapter = reelAdapter
 
+        loadData()
 
+        return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        loadData()
+    }
+
+    private fun loadData() {
         Firebase.firestore.collection(REELS_NODE).get().addOnSuccessListener {
 
             val tempList = ArrayList<Reels>()
@@ -54,7 +65,12 @@ class ReelsFragment : Fragment() {
 
         }
 
-        return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        loadData()
     }
 
 

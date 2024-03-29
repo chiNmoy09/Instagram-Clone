@@ -28,6 +28,7 @@ class ReelAdapter(private val context: Context, var list: ArrayList<Reels>): Rec
         reels = list[position]
 
         holder.binding.model = reels
+        holder.binding.videoProgressBar.visibility = View.VISIBLE
 
         Glide.with(context)
             .load(reels!!.profilePic)
