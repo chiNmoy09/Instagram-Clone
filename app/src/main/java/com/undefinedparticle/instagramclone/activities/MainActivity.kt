@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.undefinedparticle.instagramclone.R
 import com.undefinedparticle.instagramclone.databinding.ActivityMainBinding
 import com.undefinedparticle.instagramclone.fragments.AddBottomSheetDialogFragment
@@ -11,13 +12,20 @@ import com.undefinedparticle.instagramclone.fragments.search.ExploreFragment
 import com.undefinedparticle.instagramclone.fragments.HomeFragment
 import com.undefinedparticle.instagramclone.fragments.ProfileFragment
 import com.undefinedparticle.instagramclone.fragments.ReelsFragment
+import com.undefinedparticle.instagramclone.models.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
+    companion object{
+        private lateinit var mainViewModel: MainViewModel
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
+
+        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
 
         binding.addButton.setOnClickListener {
