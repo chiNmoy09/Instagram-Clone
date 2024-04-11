@@ -9,6 +9,12 @@
             name="viewModel"
             type="com.undefinedparticle.instagramclone.models.MainViewModel" />
 
+        <variable
+            name="noData"
+            type="Boolean" />
+
+        <import type="android.view.View"/>
+
 
     </data>
 
@@ -55,6 +61,18 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Data"
+            android:textSize="24sp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:visibility="@{noData? View.VISIBLE : View.GONE, default=gone}"
+            android:textColor="@color/settingsImageColor" />
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
@@ -62,6 +80,8 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_below="@+id/topLayout"
             tools:itemCount="5"
+            android:visibility="@{noData? View.GONE : View.VISIBLE, default=visible}"
+            tools:visibility="visible"
             tools:listitem="@layout/search_item"
             android:layout_marginTop="10dp" />
 

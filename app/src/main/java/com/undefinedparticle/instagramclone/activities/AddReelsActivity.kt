@@ -90,7 +90,7 @@ class AddReelsActivity : AppCompatActivity() {
                 return
             }
 
-            var reels = Reels(user.profilePic,
+            val reels = Reels(user.profilePic,
                 user.name,
                 user.userName,
                 videoURL,

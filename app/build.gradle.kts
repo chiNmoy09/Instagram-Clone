@@ -49,7 +49,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
-    implementation ("com.google.android.material:material:1.12.0-alpha03")
+    implementation ("com.google.android.material:material:1.12.0-beta01")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-auth:22.3.1")
     implementation("com.google.firebase:firebase-storage:20.3.0")
@@ -60,7 +60,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     //Data binding in Kotlin
-    implementation ("androidx.databinding:databinding-runtime:8.2.2")
+    implementation ("androidx.databinding:databinding-runtime:8.3.1")
 
     // Room components
     implementation ("androidx.room:room-ktx:2.6.1")
@@ -73,8 +73,8 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-common-java8:2.7.0")
 
     // Kotlin components
-    api ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-    api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    api ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+    api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
 
     // Testing
     testImplementation ("junit:junit:4.13.2")
@@ -86,7 +86,7 @@ dependencies {
     implementation ("com.makeramen:roundedimageview:2.3.0")
 
     // BoM for the Firebase platform
-    implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
     // Dependency for the Firebase Authentication library
     implementation("com.google.firebase:firebase-auth")
     implementation ("com.google.android.gms:play-services-auth:21.0.0")

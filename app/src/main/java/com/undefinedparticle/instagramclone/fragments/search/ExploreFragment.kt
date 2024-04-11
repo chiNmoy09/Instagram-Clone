@@ -87,6 +87,8 @@ class ExploreFragment : Fragment() {
             userList.addAll(tempList)
             searchAdapter.notifyDataSetChanged()
 
+            binding.noData = userList.size == 0
+
         }
 
     }
@@ -112,6 +114,7 @@ class ExploreFragment : Fragment() {
             userList.addAll(tempList)
             searchAdapter.notifyDataSetChanged()
 
+            binding.noData = userList.size == 0
         }
 
     }

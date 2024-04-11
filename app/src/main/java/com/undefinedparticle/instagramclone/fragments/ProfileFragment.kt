@@ -24,7 +24,10 @@ import com.undefinedparticle.instagramclone.activities.EditProfileActivity
 import com.undefinedparticle.instagramclone.databinding.FragmentProfileBinding
 import com.undefinedparticle.instagramclone.fragments.myprofile.ViewPagerAdapter
 import com.undefinedparticle.instagramclone.fragments.myprofile.ViewProfilePhotoDialogFragment
+import com.undefinedparticle.instagramclone.models.Posts
+import com.undefinedparticle.instagramclone.models.Reels
 import com.undefinedparticle.instagramclone.models.User
+import com.undefinedparticle.instagramclone.utils.REELS_NODE
 import com.undefinedparticle.instagramclone.utils.USER_NODE
 import com.undefinedparticle.instagramclone.utils.USER_PROFILE_FOLDER
 import com.undefinedparticle.instagramclone.utils.uploadImage
@@ -98,12 +101,36 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
+    private fun countPosts():Int {
+        var noOfPosts = 0
+        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
+
+            for(document in it.documents){
+                noOfPosts++
+            }
+
+            Log.d("countPosts", "noOfPosts1: $noOfPosts")
+        }
+
+        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + REELS_NODE).get().addOnSuccessListener {
+
+            for(document in it.documents){
+                noOfPosts++
+            }
+
+            Log.d("countPosts", "noOfPosts2: $noOfPosts")
+        }
+
+        return noOfPosts
+    }
+
+
     inner class ClickHandler(){
 
         fun viewProfilePhoto(view: View): Boolean{
 
             Log.d("imageURL", "imageURL: $imageURL")
-            if(imageURL.equals("imageURL")){
+            if(imageURL == "imageURL"){
                 return false
             }
 
@@ -142,6 +169,10 @@ class ProfileFragment : Fragment() {
                 }
 
             }
+
+        Log.d("countPosts", "totalPosts: ${countPosts()}")
+
+        binding.totalPosts.text = countPosts().toString()
 
     }
 
