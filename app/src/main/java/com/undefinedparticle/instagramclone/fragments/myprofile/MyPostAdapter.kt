@@ -10,7 +10,7 @@ import com.undefinedparticle.instagramclone.R
 import com.undefinedparticle.instagramclone.databinding.SamplePostItemBinding
 import com.undefinedparticle.instagramclone.models.Posts
 
-class MyPostAdapter(private val context: Context, var list: ArrayList<Posts>): RecyclerView.Adapter<MyPostAdapter.PostViewHolder>() {
+class MyPostAdapter(private val context: Context, private var list: ArrayList<Posts>): RecyclerView.Adapter<MyPostAdapter.PostViewHolder>() {
 
     var posts: Posts? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -29,11 +29,11 @@ class MyPostAdapter(private val context: Context, var list: ArrayList<Posts>): R
 
         Glide.with(context)
             .load(posts!!.profilePic)
-            .into(holder.binding.profileImage);
+            .into(holder.binding.profileImage)
 
         Glide.with(context)
             .load(posts!!.imageUrl)
-            .into(holder.binding.postImage);
+            .into(holder.binding.postImage)
 
     }
 

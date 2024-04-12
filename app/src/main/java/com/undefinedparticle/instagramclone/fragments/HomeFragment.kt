@@ -12,14 +12,19 @@ import com.google.firebase.firestore.firestore
 import com.undefinedparticle.instagramclone.R
 import com.undefinedparticle.instagramclone.databinding.FragmentHomeBinding
 import com.undefinedparticle.instagramclone.fragments.myprofile.MyPostAdapter
+import com.undefinedparticle.instagramclone.fragments.story.StoryAdapter
 import com.undefinedparticle.instagramclone.models.Posts
+import com.undefinedparticle.instagramclone.models.User
+import com.undefinedparticle.instagramclone.utils.FOLLOWING_NODE
 import com.undefinedparticle.instagramclone.utils.POST_NODE
 
 class HomeFragment : Fragment() {
     lateinit var binding:FragmentHomeBinding
 
     private lateinit var postList:ArrayList<Posts>
+    private lateinit var userList:ArrayList<User>
     private lateinit var myPostAdapter: MyPostAdapter
+    private lateinit var storyAdapter: StoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +38,11 @@ class HomeFragment : Fragment() {
         myPostAdapter = MyPostAdapter(requireContext(), postList)
         binding.recyclerView.adapter = myPostAdapter
 
+        userList = ArrayList()
+        storyAdapter = StoryAdapter(requireContext(), userList)
+        binding.storyRecyclerView.adapter = storyAdapter
+
+        loadStory()
         loadData()
 
         return binding.root
@@ -62,15 +72,40 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun loadStory(){
+
+        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOWING_NODE).get().addOnSuccessListener {
+
+            val tempList = ArrayList<User>()
+
+            for(document in it.documents){
+                val user = document.toObject(User::class.java)
+                user?.let {
+                    tempList.add(user)
+                }
+            }
+
+            userList.clear()
+            userList.addAll(tempList)
+            storyAdapter.notifyDataSetChanged()
+
+        }
+
+
+    }
+
+
     override fun onStart() {
         super.onStart()
 
+        loadStory()
         loadData()
     }
 
     override fun onResume() {
         super.onResume()
 
+        loadStory()
         loadData()
     }
 
