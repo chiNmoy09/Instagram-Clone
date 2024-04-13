@@ -76,8 +76,9 @@ class ProfileFragment : Fragment() {
         binding.handler = ClickHandler()
         auth = Firebase.auth
         user = User()
+        loadData()
 
-        viewPagerAdapter = ViewPagerAdapter(requireActivity())
+        viewPagerAdapter = ViewPagerAdapter(requireActivity(), user)
         viewPager2 = binding.viewPager2
         tabLayout = binding.tabLayout
         //viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -146,9 +147,7 @@ class ProfileFragment : Fragment() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-
+    private fun loadData(){
         Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).get()
             .addOnSuccessListener {
 
@@ -169,6 +168,11 @@ class ProfileFragment : Fragment() {
                 }
 
             }
+    }
+    override fun onStart() {
+        super.onStart()
+
+        loadData()
 
         Log.d("countPosts", "totalPosts: ${countPosts()}")
 

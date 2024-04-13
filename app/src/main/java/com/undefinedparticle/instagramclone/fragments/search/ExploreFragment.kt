@@ -1,11 +1,11 @@
 package com.undefinedparticle.instagramclone.fragments.search
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.Firebase
@@ -13,11 +13,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.undefinedparticle.instagramclone.R
-import com.undefinedparticle.instagramclone.activities.MainActivity
 import com.undefinedparticle.instagramclone.databinding.FragmentExploreBinding
-import com.undefinedparticle.instagramclone.fragments.myprofile.MyPostAdapter
 import com.undefinedparticle.instagramclone.models.MainViewModel
-import com.undefinedparticle.instagramclone.models.Posts
 import com.undefinedparticle.instagramclone.models.User
 import com.undefinedparticle.instagramclone.utils.USER_NODE
 

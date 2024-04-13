@@ -8,6 +8,8 @@ class Posts {
     var imageUrl: String? = null
     var postCaption: String? = null
     var postLocation: String? = null
+    var postId: String? = null
+    var isLiked: Boolean = false
     var postTime: Long? =null
     var likeCount: Int? = null
     var commentsCount: Int? = null

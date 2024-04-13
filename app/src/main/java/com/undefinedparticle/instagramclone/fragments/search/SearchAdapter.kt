@@ -1,6 +1,7 @@
 package com.undefinedparticle.instagramclone.fragments.search
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -15,8 +16,6 @@ import com.undefinedparticle.instagramclone.models.User
 import com.undefinedparticle.instagramclone.utils.FOLLOWING_NODE
 
 class SearchAdapter(private val context: Context, private var list: ArrayList<User>): RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
-
-    var user: User? = null
 
     inner class SearchViewHolder (val binding:SearchItemBinding): RecyclerView.ViewHolder(binding.root){
 
@@ -35,28 +34,32 @@ class SearchAdapter(private val context: Context, private var list: ArrayList<Us
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
 
-        user = list[position]
+        val user = list[position]
 
-        Glide.with(context)
-            .load(user!!.profilePic)
-            .into(holder.binding.profileImage)
+        if(user.profilePic != null) {
+            Glide.with(context)
+                .load(user.profilePic)
+                .into(holder.binding.profileImage)
+        }else{
+            holder.binding.profileImage.setImageResource(R.drawable.user_image)
+        }
 
-        holder.binding.name.text = user!!.name.toString()
-        holder.binding.userName.text = user!!.userName.toString()
+        holder.binding.name.text = user.name.toString()
+        holder.binding.userName.text = user.userName.toString()
 
-        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOWING_NODE).whereEqualTo("email", user!!.email)
+        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOWING_NODE).whereEqualTo("email", list[position].email)
             .get().addOnSuccessListener {
 
-                user!!.following = !it.isEmpty
-                holder.binding.following = user!!.following
+                list[position].following = !it.isEmpty
+                holder.binding.following = list[position].following
 
             }
 
 
         holder.binding.followButton.setOnClickListener {
 
-            if(user!!.following == true){
-                Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOWING_NODE).whereEqualTo("email", user!!.email)
+            if(list[position].following == true){
+                Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOWING_NODE).whereEqualTo("email", list[position].email)
                     .get().addOnSuccessListener {
 
                         Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOWING_NODE).document(
@@ -65,15 +68,16 @@ class SearchAdapter(private val context: Context, private var list: ArrayList<Us
 
                     }
             }else{
-                Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOWING_NODE).document().set(user!!)
+                Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOWING_NODE).document().set(list[position])
+                Log.d("followButton", list[position].email + list[position].userName)
             }
 
-            user!!.following = !user!!.following!!
-            holder.binding.following = user!!.following
+            list[position].following = !list[position].following!!
+            holder.binding.following = list[position].following
 
         }
 
-
+//alexandracheng2019@gmail.com
     }
 
 }

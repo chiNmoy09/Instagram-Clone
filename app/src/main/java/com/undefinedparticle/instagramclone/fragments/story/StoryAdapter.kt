@@ -16,7 +16,6 @@ import com.undefinedparticle.instagramclone.models.User
 
 class StoryAdapter(private var myContext: Context, private var list: ArrayList<User>): RecyclerView.Adapter<StoryAdapter.StoryViewHolder>() {
 
-    var user: User? = null
     inner class StoryViewHolder(var binding: StoryItemBinding): RecyclerView.ViewHolder(binding.root){
 
 
@@ -34,11 +33,11 @@ class StoryAdapter(private var myContext: Context, private var list: ArrayList<U
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
 
-        user = list[position]
+        val user = list[position]
 
-        if(user!!.profilePic != null){
+        if(user.profilePic != null){
             Glide.with(myContext)
-                .load(user!!.profilePic)
+                .load(user.profilePic)
                 .into(holder.binding.profileImage)
         }else{
             holder.binding.profileImage.setImageResource(R.drawable.default_profile_photo)
@@ -46,7 +45,7 @@ class StoryAdapter(private var myContext: Context, private var list: ArrayList<U
 
         holder.binding.profileImage.setOnClickListener {
 
-            if(user!!.profilePic != null){
+            if(user.profilePic != null){
 
                 val dialogFragment = ViewProfilePhotoDialogFragment(user!!.profilePic.toString())
                 val fragmentManager = (myContext as FragmentActivity).supportFragmentManager

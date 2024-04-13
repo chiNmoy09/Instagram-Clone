@@ -11,6 +11,8 @@ class User {
     var postCaption: String? = null
     var postLocation: String? = null
     var following: Boolean? = false
+    var storyImage: String? = null
+
 
 
     constructor(name: String?, userName: String?, email: String?, password: String?) {

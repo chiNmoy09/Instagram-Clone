@@ -3,8 +3,9 @@ package com.undefinedparticle.instagramclone.fragments.myprofile
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.undefinedparticle.instagramclone.models.User
 
-class ViewPagerAdapter(fragmentActivity: FragmentActivity): FragmentStateAdapter(fragmentActivity) {
+class ViewPagerAdapter(fragmentActivity: FragmentActivity, val user: User): FragmentStateAdapter(fragmentActivity) {
 
     override fun getItemCount(): Int {
         return 2
@@ -15,7 +16,7 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity): FragmentStateAdapter
         return when(position){
 
             0 -> {
-                MyPostFragment()
+                MyPostFragment(user)
             }
 
             1 -> {
@@ -23,7 +24,7 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity): FragmentStateAdapter
             }
 
             else -> {
-                MyPostFragment()
+                MyPostFragment(user)
             }
 
         }

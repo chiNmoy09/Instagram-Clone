@@ -13,8 +13,9 @@ import com.google.firebase.firestore.firestore
 import com.undefinedparticle.instagramclone.R
 import com.undefinedparticle.instagramclone.databinding.FragmentMyPostBinding
 import com.undefinedparticle.instagramclone.models.Posts
+import com.undefinedparticle.instagramclone.models.User
 
-class MyPostFragment : Fragment() {
+class MyPostFragment(val user: User) : Fragment() {
     lateinit var binding: FragmentMyPostBinding
     private lateinit var postList:ArrayList<Posts>
     private lateinit var myPostAdapter: MyPostAdapter
@@ -28,7 +29,7 @@ class MyPostFragment : Fragment() {
         binding.lifecycleOwner = this
 
         postList = ArrayList()
-        myPostAdapter = MyPostAdapter(requireContext(), postList)
+        myPostAdapter = MyPostAdapter(requireContext(), postList, user)
         binding.recyclerView.adapter = myPostAdapter
 
         loadData()
@@ -49,6 +50,9 @@ class MyPostFragment : Fragment() {
 
             for(document in it.documents){
                 val post = document.toObject(Posts::class.java)
+                if(post != null){
+                    post.postId = document.id
+                }
                 post?.let {
                     tempList.add(post)
                 }
