@@ -61,6 +61,7 @@
     <color name="instagramColor">#C13584</color>
     <color name="transparentColor">#00000000</color>
     <color name="customBlueColor">#4A94F2</color>
+    <color name="red">#FF0000</color>
 
 
 </resources>

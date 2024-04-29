@@ -1,15 +1,20 @@
 package com.undefinedparticle.instagramclone.fragments
 
+import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
@@ -21,11 +26,12 @@ import com.google.firebase.firestore.firestore
 import com.google.firebase.firestore.toObject
 import com.undefinedparticle.instagramclone.R
 import com.undefinedparticle.instagramclone.activities.EditProfileActivity
+import com.undefinedparticle.instagramclone.activities.MainActivity
 import com.undefinedparticle.instagramclone.databinding.FragmentProfileBinding
+import com.undefinedparticle.instagramclone.databinding.ProfileMenuBinding
 import com.undefinedparticle.instagramclone.fragments.myprofile.ViewPagerAdapter
 import com.undefinedparticle.instagramclone.fragments.myprofile.ViewProfilePhotoDialogFragment
-import com.undefinedparticle.instagramclone.models.Posts
-import com.undefinedparticle.instagramclone.models.Reels
+import com.undefinedparticle.instagramclone.models.MainViewModel
 import com.undefinedparticle.instagramclone.models.User
 import com.undefinedparticle.instagramclone.utils.REELS_NODE
 import com.undefinedparticle.instagramclone.utils.USER_NODE
@@ -40,6 +46,8 @@ class ProfileFragment : Fragment() {
     private lateinit var viewPager2: ViewPager2
     private lateinit var tabLayout: TabLayout
     private var imageURL = "imageURL"
+    private lateinit var mainViewModel: MainViewModel
+
 
     private lateinit var auth: FirebaseAuth
     lateinit var user: User
@@ -73,6 +81,8 @@ class ProfileFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         binding.lifecycleOwner = this
 
+        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
         binding.handler = ClickHandler()
         auth = Firebase.auth
         user = User()
@@ -99,7 +109,58 @@ class ProfileFragment : Fragment() {
 
         }
 
+        binding.menuIcon.setOnClickListener{
+
+            showPopupMenu()
+
+        }
+
+
+
         return binding.root
+    }
+
+    private fun showPopupMenu() {
+        val binding1: ProfileMenuBinding = DataBindingUtil.inflate(
+            getLayoutInflater(),
+            R.layout.profile_menu,
+            view as ViewGroup?,
+            false
+        )
+        val view1: View = binding1.root
+        val builder = AlertDialog.Builder(context)
+        builder.setView(view1)
+        val alertDialog = builder.create()
+
+
+        binding1.layoutMenu.setOnClickListener(View.OnClickListener {
+
+            alertDialog.dismiss()
+
+        })
+
+
+        binding1.help.setOnClickListener(View.OnClickListener {
+
+
+
+        })
+
+        binding1.logoutButton.setOnClickListener(View.OnClickListener {
+
+            MainActivity.mainViewModel.loggedOut.value = true
+            alertDialog.dismiss()
+            Log.d("loggedOut","logoutButton: clicked!")
+
+        })
+
+
+        if (alertDialog.window != null) {
+            alertDialog.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
+        alertDialog.setCancelable(true)
+        alertDialog.show()
+        alertDialog.window!!.setGravity(Gravity.TOP)
     }
 
     private fun countPosts():Int {
@@ -124,7 +185,6 @@ class ProfileFragment : Fragment() {
 
         return noOfPosts
     }
-
 
     inner class ClickHandler(){
 

@@ -148,7 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/viewLine"
-                    android:text="There is no post."
+                    android:text="No Posts"
                     android:textSize="20sp"
                     android:visibility="@{isThereAnyPosts? View.GONE : View.VISIBLE}"
                     tools:visibility="gone"

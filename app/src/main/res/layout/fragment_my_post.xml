@@ -23,7 +23,7 @@
             android:id="@+id/noPostsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="There is no post."
+            android:text="No Posts"
             android:textSize="20sp"
             android:visibility="@{isThereAnyPosts? View.GONE : View.VISIBLE}"
             tools:visibility="gone"

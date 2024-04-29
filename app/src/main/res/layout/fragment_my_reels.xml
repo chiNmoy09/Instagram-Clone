@@ -20,7 +20,7 @@
             android:id="@+id/noPostsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="There are no reels."
+            android:text="No Reels"
             android:textSize="20sp"
             android:visibility="@{isThereAnyPosts? View.GONE : View.VISIBLE}"
             tools:visibility="visible"

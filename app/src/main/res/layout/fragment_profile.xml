@@ -20,57 +20,57 @@
         tools:context=".fragments.ProfileFragment">
 
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/profileImage"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/default_user_profile"
-                        app:civ_border_color="@color/viewLineColor"
-                        app:civ_border_width="2dp"
-                        android:onLongClick="@{handler::viewProfilePhoto}"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/add_icon"
-                        app:civ_border_color="@color/white"
-                        app:civ_border_width="2dp"
-                        android:onClick="@{handler::changeImage}"
-                        app:layout_constraintBottom_toBottomOf="@+id/profileImage"
-                        app:layout_constraintEnd_toEndOf="@+id/profileImage"
-                        app:layout_constraintTop_toTopOf="@+id/profileImage"
-                        app:layout_constraintVertical_bias="0.84000003" />
+                    android:paddingStart="17dp"
+                    android:paddingTop="14dp"
+                    android:paddingEnd="23dp"
+                    android:paddingBottom="14dp">
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="\@chiNmoy09"
+                        android:textAlignment="center"
+                        android:textColor="@color/settingsImageColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/menuIcon"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_alignParentEnd="true"
+                        app:tint="@color/settingsImageColor"
+                        android:src="@drawable/menu_icon" />
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/dividerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/viewLineColor"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -79,75 +79,148 @@
                         android:gravity="center"
                         android:orientation="horizontal">
 
-                        <LinearLayout
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:orientation="vertical">
+                            android:layout_marginStart="20dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="45"
-                                tools:text="45"
-                                android:textColor="@color/settingsImageColor"
-                                android:textSize="16sp"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Followers"
-                                android:textColor="@color/settingsImageColor"
-                                android:textSize="16sp"/>
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/profileImage"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/default_user_profile"
+                                app:civ_border_color="@color/viewLineColor"
+                                app:civ_border_width="2dp"
+                                android:onLongClick="@{handler::viewProfilePhoto}"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                        </LinearLayout>
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/add_icon"
+                                app:civ_border_color="@color/white"
+                                app:civ_border_width="2dp"
+                                android:onClick="@{handler::changeImage}"
+                                app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+                                app:layout_constraintEnd_toEndOf="@+id/profileImage"
+                                app:layout_constraintTop_toTopOf="@+id/profileImage"
+                                app:layout_constraintVertical_bias="0.84000003" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:padding="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
                             android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="55"
-                                tools:text="55"
-                                android:textColor="@color/settingsImageColor"
-                                android:textSize="16sp"/>
-                            <TextView
-                                android:layout_width="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="45"
+                                        tools:text="45"
+                                        android:textColor="@color/settingsImageColor"
+                                        android:textSize="16sp"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Followers"
+                                        android:textColor="@color/settingsImageColor"
+                                        android:textSize="16sp"/>
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="55"
+                                        tools:text="55"
+                                        android:textColor="@color/settingsImageColor"
+                                        android:textSize="16sp"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Following"
+                                        tools:text="Following"
+                                        android:textColor="@color/settingsImageColor"
+                                        android:textSize="16sp"/>
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/totalPosts"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        tools:text="15"
+                                        android:textColor="@color/settingsImageColor"
+                                        android:textSize="16sp"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Posts"
+                                        tools:text="Posts"
+                                        android:textColor="@color/settingsImageColor"
+                                        android:textSize="16sp"/>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Following"
-                                tools:text="Following"
-                                android:textColor="@color/settingsImageColor"
-                                android:textSize="16sp"/>
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+
+                                <Button
+                                    android:id="@+id/editProfileButton"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Edit Profile"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/white"
+                                    android:backgroundTint="@color/customBlueColor" />
+
+
+                            </LinearLayout>
+
 
                         </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/totalPosts"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0"
-                                tools:text="15"
-                                android:textColor="@color/settingsImageColor"
-                                android:textSize="16sp"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Posts"
-                                tools:text="Posts"
-                                android:textColor="@color/settingsImageColor"
-                                android:textSize="16sp"/>
-
-                        </LinearLayout>
 
 
                     </LinearLayout>
@@ -155,106 +228,75 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
 
-
-                        <Button
-                            android:id="@+id/editProfileButton"
-                            android:layout_width="200dp"
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Edit Profile"
-                            android:textSize="14sp"
-                            android:textColor="@color/white"
-                            android:backgroundTint="@color/customBlueColor" />
+                            tools:text="Chinmoy Mondal"
+                            android:maxLines="1"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/settingsImageColor" />
 
+                        <TextView
+                            android:id="@+id/bio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_medium"
+                            android:textColor="@color/settingsImageColor"
+                            android:textSize="14sp"
+                            tools:text="Android Developer (Java/Kotlin) || Solved 400+ LeetCode Problems || CodeChef: 1659 || Linux User || IIT(ISM), Dhanbad" />
 
                     </LinearLayout>
 
-
                 </LinearLayout>
 
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:tabGravity="fill"
+                    app:tabIndicatorColor="@color/post_blue"
+                    app:tabIndicatorFullWidth="true"
+                    app:tabIndicatorHeight="2dp"
+                    app:tabInlineLabel="true"
+                    app:tabPaddingEnd="30dp"
+                    app:tabPaddingStart="30dp"
+                    app:tabMode="fixed"
+                    android:textSize="16sp"
+                    app:tabSelectedTextColor="@color/settingsImageColor"
+                    app:tabTextAppearance="@style/tab_text"
+                    app:tabTextColor="@color/settingsImageColor" >
+
+                    <!--<com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Posts"/>
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reels"/>-->
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="Chinmoy Mondal"
-                    android:maxLines="1"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/settingsImageColor" />
-
-                <TextView
-                    android:id="@+id/userName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="\@chiNmoy09"
-                    android:maxLines="1"
-                    android:textSize="14sp"
-                    android:textColor="@color/blockedUserNameColor" />
-
-                <TextView
-                    android:id="@+id/bio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_medium"
-                    android:textColor="@color/settingsImageColor"
-                    android:textSize="14sp"
-                    tools:text="Android Developer (Java/Kotlin) || Solved 400+ LeetCode Problems || CodeChef: 1659 || Linux User || IIT(ISM), Dhanbad" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="@color/post_blue"
-            app:tabIndicatorFullWidth="true"
-            app:tabIndicatorHeight="2dp"
-            app:tabInlineLabel="true"
-            app:tabPaddingEnd="30dp"
-            app:tabPaddingStart="30dp"
-            app:tabMode="fixed"
-            android:textSize="16sp"
-            app:tabSelectedTextColor="@color/settingsImageColor"
-            app:tabTextAppearance="@style/tab_text"
-            app:tabTextColor="@color/settingsImageColor" >
-
-            <!--<com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Posts"/>
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reels"/>-->
-
-        </com.google.android.material.tabs.TabLayout>
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
+        </androidx.core.widget.NestedScrollView>
 
 
     </LinearLayout>
