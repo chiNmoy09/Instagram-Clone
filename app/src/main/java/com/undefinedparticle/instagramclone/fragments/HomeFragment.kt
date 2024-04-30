@@ -36,9 +36,9 @@ class HomeFragment : Fragment() {
     private lateinit var myPostAdapter: MyPostAdapter
     private lateinit var storyAdapter: StoryAdapter
     private lateinit var user: User
-    val db = Firebase.firestore
+    private val db = Firebase.firestore
 
-    val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+    private val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
 
         uri?.let {
 
@@ -89,6 +89,19 @@ class HomeFragment : Fragment() {
 
         }
 
+        binding.notificationButton.setOnClickListener {
+
+            Toast.makeText(context, "This is under development!", Toast.LENGTH_SHORT).show()
+
+
+        }
+        binding.chatButton.setOnClickListener {
+
+            Toast.makeText(context, "This is under development!", Toast.LENGTH_SHORT).show()
+
+
+        }
+
         binding.storyImage.setOnClickListener {
 
             if(user.storyImage != null){
@@ -101,6 +114,8 @@ class HomeFragment : Fragment() {
             }
 
         }
+
+
 
         return binding.root
     }
@@ -159,7 +174,7 @@ class HomeFragment : Fragment() {
                 }
             }*/
 
-        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOWING_NODE).get().addOnSuccessListener {
+        Firebase.firestore.collection(STORY_NODE).get().addOnSuccessListener {
 
             val tempList = ArrayList<User>()
 

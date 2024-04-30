@@ -142,7 +142,7 @@ class ProfileFragment : Fragment() {
 
         binding1.help.setOnClickListener(View.OnClickListener {
 
-
+            Toast.makeText(context, "This is under development!", Toast.LENGTH_SHORT).show()
 
         })
 
