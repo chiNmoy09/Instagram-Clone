@@ -11,10 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
@@ -33,10 +34,14 @@ import com.undefinedparticle.instagramclone.fragments.myprofile.ViewPagerAdapter
 import com.undefinedparticle.instagramclone.fragments.myprofile.ViewProfilePhotoDialogFragment
 import com.undefinedparticle.instagramclone.models.MainViewModel
 import com.undefinedparticle.instagramclone.models.User
+import com.undefinedparticle.instagramclone.utils.FOLLOWING_NODE
 import com.undefinedparticle.instagramclone.utils.REELS_NODE
+import com.undefinedparticle.instagramclone.utils.STORY_NODE
 import com.undefinedparticle.instagramclone.utils.USER_NODE
 import com.undefinedparticle.instagramclone.utils.USER_PROFILE_FOLDER
 import com.undefinedparticle.instagramclone.utils.uploadImage
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 
 class ProfileFragment : Fragment() {
@@ -51,7 +56,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     lateinit var user: User
-    val db = Firebase.firestore
+    private val db = Firebase.firestore
     val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
 
         uri?.let {
@@ -115,9 +120,33 @@ class ProfileFragment : Fragment() {
 
         }
 
+        //observeLiveData()
 
+        lifecycleScope.launch {
+
+            binding.noOfFollowers.text = countFollowings().toString()
+
+        }
+        lifecycleScope.launch {
+
+            binding.noOfFollowings.text = countFollowings().toString()
+
+        }
+        lifecycleScope.launch {
+
+            binding.totalPosts.text = countPosts().toString()
+
+        }
 
         return binding.root
+    }
+
+    private fun observeLiveData() {
+        MainActivity.mainViewModel.totalPosts.observe(viewLifecycleOwner, Observer {
+
+            binding.totalPosts.text = it.toString()
+
+        })
     }
 
     private fun showPopupMenu() {
@@ -163,27 +192,28 @@ class ProfileFragment : Fragment() {
         alertDialog.window!!.setGravity(Gravity.TOP)
     }
 
-    private fun countPosts():Int {
-        var noOfPosts = 0
-        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
+    private suspend fun countFollowings(): Int{
+        var totalFollowing = 0
+        val followingTask = Firebase.firestore.collection(FOLLOWING_NODE).get()
 
-            for(document in it.documents){
-                noOfPosts++
-            }
+        val followingSnapshot = followingTask.await()
 
-            Log.d("countPosts", "noOfPosts1: $noOfPosts")
-        }
+        totalFollowing += followingSnapshot.size()
 
-        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + REELS_NODE).get().addOnSuccessListener {
+        return totalFollowing
+    }
 
-            for(document in it.documents){
-                noOfPosts++
-            }
+    private suspend fun countPosts(): Int {
+        var totalPosts = 0
+        val userPostsTask = Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).get()
+        val reelsPostsTask = Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + REELS_NODE).get()
 
-            Log.d("countPosts", "noOfPosts2: $noOfPosts")
-        }
+        val userPostsSnapshot = userPostsTask.await()
+        val reelsPostsSnapshot = reelsPostsTask.await()
 
-        return noOfPosts
+        totalPosts += userPostsSnapshot.size() + reelsPostsSnapshot.size()
+
+        return totalPosts
     }
 
     inner class ClickHandler(){
@@ -234,9 +264,7 @@ class ProfileFragment : Fragment() {
 
         loadData()
 
-        Log.d("countPosts", "totalPosts: ${countPosts()}")
-
-        binding.totalPosts.text = countPosts().toString()
+        //binding.totalPosts.text = countPosts().toString()
 
     }
 
