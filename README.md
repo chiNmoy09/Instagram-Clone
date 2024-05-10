@@ -39,13 +39,13 @@ This repository is still under development and I will continue to add more featu
 
 <p>
 
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/login.jpg?raw=true" alt="LogIn" width = "400" >
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/register.jpg?raw=true" alt="LogIn" width = "400" >
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/home.jpg?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/login_light.jpg?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/register_light.jpg?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/home_light.jpg?raw=true" alt="LogIn" width = "400" >
 
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/profile.jpg?raw=true" alt="LogIn" width = "400" >
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/editprofile.jpg?raw=true" alt="LogIn" width = "400" >
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/explore.jpg?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/profile_light.jpg?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/editprofile_light.jpg?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/explore_light.jpg?raw=true" alt="LogIn" width = "400" >
 
 
 </p>
