@@ -39,13 +39,13 @@ This repository is still under development and I will continue to add more featu
 
 <p>
 
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/login_mob.jpg?raw=true" alt="LogIn" width = "400" >
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/register_mob.jpg?raw=true" alt="LogIn" width = "400" >
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/home_mob.jpg?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/login_mob.png?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/register_mob.png?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/home_mob.png?raw=true" alt="LogIn" width = "400" >
 
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/profile_mob.jpg?raw=true" alt="LogIn" width = "400" >
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/editprofile_mob.jpg?raw=true" alt="LogIn" width = "400" >
-<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/explore_mob.jpg?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/profile_mob.png?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/editprofile_mob.png?raw=true" alt="LogIn" width = "400" >
+<img src="https://github.com/UndefinedParticle/Instagram-Clone/blob/main/Screenshots/explore_mob.png?raw=true" alt="LogIn" width = "400" >
 
 
 </p>
