@@ -53,6 +53,4 @@ This repository is still under development and I will continue to add more featu
 
 ## Contact
 
-Follow me on
- 
-<a href="https://www.linkedin.com/in/chinmoy09ine/"><img src="https://user-images.githubusercontent.com/35039342/55471530-94b34280-5627-11e9-8c0e-6fe86a8406d6.png" width="60"></a>
+<a href="https://www.linkedin.com/in/chinmoy09ine/"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"  alt="chinmoy09ine" height="30" width="40" /></a>
