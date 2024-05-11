@@ -19,7 +19,7 @@
     </style>
 
     <style name="settingsBG">
-        <item name="android:background">#121212</item>
+        <item name="android:background">#000000</item>
         <item name="android:textColor">#F5F5F5</item>
     </style>
 

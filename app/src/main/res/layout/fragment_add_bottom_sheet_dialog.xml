@@ -5,7 +5,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/settingsBG"
+        android:background="@color/darkModeBG"
         android:padding="10dp"
         android:orientation="vertical">
 
@@ -13,7 +13,6 @@
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:gravity="center"
-            style="@style/settingsBG"
             android:padding="8dp"
             android:layout_height="wrap_content">
 
@@ -28,7 +27,7 @@
         <LinearLayout
             android:id="@+id/addPost"
             android:layout_width="match_parent"
-            style="@style/settingsBG"
+            android:background="@color/darkModeBG"
             android:layout_marginTop="8dp"
             android:padding="15dp"
             android:orientation="horizontal"
@@ -58,7 +57,7 @@
         <LinearLayout
             android:id="@+id/addReel"
             android:layout_width="match_parent"
-            style="@style/settingsBG"
+            android:background="@color/darkModeBG"
             android:padding="15dp"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
