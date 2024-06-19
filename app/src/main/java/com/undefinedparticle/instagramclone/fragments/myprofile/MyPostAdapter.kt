@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
@@ -35,9 +36,13 @@ class MyPostAdapter(private val myContext: Context, private var list: ArrayList<
 
         holder.binding.model = posts
 
-        Glide.with(myContext)
-            .load(posts.profilePic)
-            .into(holder.binding.profileImage)
+        if(posts.profilePic != null){
+            Glide.with(myContext)
+                .load(posts.profilePic)
+                .into(holder.binding.profileImage)
+        }else{
+            holder.binding.profileImage.setImageResource(R.drawable.default_user_profile)
+        }
 
         Glide.with(myContext)
             .load(posts.imageUrl)
@@ -59,6 +64,19 @@ class MyPostAdapter(private val myContext: Context, private var list: ArrayList<
                 holder.binding.bookmarkButton.setImageResource(R.drawable.bookmarked_icon)
             }else{
                 holder.binding.bookmarkButton.setImageResource(R.drawable.bookmark_icon)
+            }
+
+        }
+
+        holder.binding.profileImage.setOnClickListener {
+
+            if(posts.profilePic != null){
+
+                val dialogFragment = ViewProfilePhotoDialogFragment(posts!!.profilePic.toString())
+                val fragmentManager = (myContext as FragmentActivity).supportFragmentManager
+                dialogFragment.show(fragmentManager, "fullScreenDialog")
+
+
             }
 
         }

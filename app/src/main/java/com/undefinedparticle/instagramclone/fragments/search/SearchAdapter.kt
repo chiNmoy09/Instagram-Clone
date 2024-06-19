@@ -41,7 +41,7 @@ class SearchAdapter(private val context: Context, private var list: ArrayList<Us
                 .load(user.profilePic)
                 .into(holder.binding.profileImage)
         }else{
-            holder.binding.profileImage.setImageResource(R.drawable.user_image)
+            holder.binding.profileImage.setImageResource(R.drawable.default_user_profile)
         }
 
         holder.binding.name.text = user.name.toString()
